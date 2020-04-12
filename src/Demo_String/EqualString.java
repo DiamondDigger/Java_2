@@ -8,9 +8,9 @@ public class EqualString {
         System.out.println("str1.equals(str2) = "+ str1.equals(str2));
         System.out.println("str1==str2 = "+ (str1==str2));
 
-// String.compareTo
+// String.compareTo and compareToIgnore
 
-        String[] arrStr = {"new", "cat", "Bully","coin", "book", "wood"};
+        String[] arrStr = {"new", "cat", "Bully","coin", "book", "wood", "catt"};
 
         for (int i = 0; i < arrStr.length ; i++) {
             for (int j = i+1; j < arrStr.length; j++) {
