@@ -58,6 +58,7 @@ public class EqualString {
         stringBuffer.append("Java");
         System.out.println("stringBuffer.equals(stringBuilder): " + (stringBuffer.equals(stringBuilder)));
         System.out.println("stringBuffer.hashCode()==stringBuilder.hashCode(): " + (stringBuffer.hashCode() == stringBuilder.hashCode()));
+        System.out.println("stringBuffer.toString().hashCode() == stringBuilder.toString().hashCode(): "+(stringBuffer.toString().hashCode() == stringBuilder.toString().hashCode()));
 
     }
 }
