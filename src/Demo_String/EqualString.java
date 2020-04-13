@@ -63,5 +63,7 @@ public class EqualString {
         System.out.println("stringBuffer.toString().equals(stringBuilder.toString()): " + (stringBuffer.toString().equals(stringBuilder.toString())));
         System.out.println("stringBuffer.toString().contentEquals(stringBuilder): "+stringBuffer.toString().contentEquals(stringBuilder));
 
+        System.out.println("stringBuffer.hashCode() = "+stringBuffer.hashCode());    // 885284298
+        System.out.println("stringBuilder.hashCode() = "+stringBuilder.hashCode());  // 1389133897
     }
 }
