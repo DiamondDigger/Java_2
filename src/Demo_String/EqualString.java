@@ -60,6 +60,8 @@ public class EqualString {
         System.out.println("stringBuffer.hashCode()==stringBuilder.hashCode(): " + (stringBuffer.hashCode() == stringBuilder.hashCode()));
         System.out.println("stringBuffer.toString().hashCode() == stringBuilder.toString().hashCode(): " + (stringBuffer.toString().hashCode() == stringBuilder.toString().hashCode()));
         System.out.println("stringBuffer.toString() == stringBuilder.toString(): " + (stringBuffer.toString() == stringBuilder.toString()));
+        System.out.println("stringBuffer.toString().equals(stringBuilder.toString()): " + (stringBuffer.toString().equals(stringBuilder.toString())));
+        System.out.println("stringBuffer.toString().contentEquals(stringBuilder): "+stringBuffer.toString().contentEquals(stringBuilder));
 
     }
 }
