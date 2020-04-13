@@ -5,19 +5,19 @@ public class EqualString {
         String str1 = "Hello";
         String str2 = new String(str1);
 
-        System.out.println("str1.equals(str2) = "+ str1.equals(str2));
-        System.out.println("str1==str2 = "+ (str1==str2));
+        System.out.println("str1.equals(str2) = " + str1.equals(str2));
+        System.out.println("str1==str2 = " + (str1 == str2));
 
 // String.compareTo and compareToIgnore
 
-        String[] arrStr = {"new", "cat", "Bully","coin", "book", "wood", "catt"};
+        String[] arrStr = {"new", "cat", "Bully", "coin", "book", "wood", "catt"};
 
-        for (int i = 0; i < arrStr.length ; i++) {
-            for (int j = i+1; j < arrStr.length; j++) {
-                if (arrStr[j].compareTo(arrStr[i])<0) {
+        for (int i = 0; i < arrStr.length; i++) {
+            for (int j = i + 1; j < arrStr.length; j++) {
+                if (arrStr[j].compareTo(arrStr[i]) < 0) {
                     String temp = arrStr[j];
-                    arrStr[j]=arrStr[i];
-                    arrStr[i]=temp;
+                    arrStr[j] = arrStr[i];
+                    arrStr[i] = temp;
                 }
             }
         }
@@ -27,12 +27,12 @@ public class EqualString {
             System.out.println(s);
         }
 
-        for (int i = 0; i < arrStr.length ; i++) {
-            for (int j = i+1; j < arrStr.length; j++) {
-                if (arrStr[j].compareToIgnoreCase(arrStr[i])<0) {
+        for (int i = 0; i < arrStr.length; i++) {
+            for (int j = i + 1; j < arrStr.length; j++) {
+                if (arrStr[j].compareToIgnoreCase(arrStr[i]) < 0) {
                     String temp = arrStr[j];
-                    arrStr[j]=arrStr[i];
-                    arrStr[i]=temp;
+                    arrStr[j] = arrStr[i];
+                    arrStr[i] = temp;
                 }
             }
         }
@@ -41,5 +41,23 @@ public class EqualString {
         for (String s : arrStr) {
             System.out.println(s);
         }
+
+
+        // String.intern - ищет такой объект в пуле литералов - если находит - возврашщает ссылку на него, нет - добавляет в пул
+        String s1 = "JavaMachine";
+        String s2 = new String(s1);
+
+        System.out.println("s1 == s2: " + (s1 == s2));
+        s2 = s2.intern();
+        System.out.println("s1 == s2: " + (s1 == s2));
+
+        //StringBuffer and StringBuilder
+        StringBuilder stringBuilder = new StringBuilder();
+        StringBuffer stringBuffer = new StringBuffer(35);
+        stringBuilder.append("Java");
+        stringBuffer.append("Java");
+        System.out.println("stringBuffer.equals(stringBuilder): " + (stringBuffer.equals(stringBuilder)));
+        System.out.println("stringBuffer.hashCode()==stringBuilder.hashCode(): " + (stringBuffer.hashCode() == stringBuilder.hashCode()));
+
     }
 }
