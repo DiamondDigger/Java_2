@@ -69,8 +69,13 @@ public class EqualString {
         System.out.println("stringBuffer.hashCode() = "+stringBuffer.hashCode());    // 885284298
         System.out.println("stringBuilder.hashCode() = "+stringBuilder.hashCode());  // 1389133897
 
+        // Pattern and Matcher
         Pattern patternNew =Pattern.compile("string");
-        Matcher matcherNew ;
-
+        Matcher matcherNew = patternNew.matcher("stringstring stringBuffer stringg 34string");
+        int i = 1;
+        while( matcherNew.find()){
+            System.out.println("matcherNew.group(): "+ i +". " + matcherNew.group());
+            i++;
+        }
     }
 }
