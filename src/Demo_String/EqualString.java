@@ -1,5 +1,8 @@
 package Demo_String;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class EqualString {
     public static void main(String[] args) {
         String str1 = "Hello";
@@ -65,5 +68,9 @@ public class EqualString {
 
         System.out.println("stringBuffer.hashCode() = "+stringBuffer.hashCode());    // 885284298
         System.out.println("stringBuilder.hashCode() = "+stringBuilder.hashCode());  // 1389133897
+
+        Pattern patternNew =Pattern.compile("string");
+        Matcher matcherNew ;
+
     }
 }
