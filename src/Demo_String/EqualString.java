@@ -111,19 +111,20 @@ public class EqualString {
 
         String[] wordsArrWithoutDuplicate = Arrays.stream(wordsArr).distinct().sorted().toArray(String[]::new);
         for (int j = 0; j < wordsArrWithoutDuplicate.length; j++) {
-            System.out.print(wordsArrWithoutDuplicate[j]+" ,");
-            if (j ==100) {
+            System.out.print(wordsArrWithoutDuplicate[j] + " ,");
+            if (j == 100) {
                 System.out.println("\n");
             }
         }
         System.out.println();
-        System.out.println("wordsArrWithoutDuplicate.length= "+wordsArrWithoutDuplicate.length);
+        System.out.println("wordsArrWithoutDuplicate.length= " + wordsArrWithoutDuplicate.length);
 
         List<String> list = Arrays.stream(wordsArr).distinct().collect(Collectors.toList());
-        System.out.println("list: "+list+ "\n"+ "list.size()= "+list.size() );
+        System.out.println("list: " + list + "\n" + "list.size()= " + list.size());
+        char[] sequenceOfWord = new char[10];
+        String[] wordArrFromM = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && s.charAt(0)=='m').toArray(String[]::new);
 
-
-
-
+        System.out.println("wordArrFromM: " + Arrays.stream(wordArrFromM).collect(Collectors.toList())
+                +"\n"+ "wordArrFromM.length= "+wordArrFromM.length);
     }
 }
