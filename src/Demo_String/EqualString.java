@@ -1,5 +1,6 @@
 package Demo_String;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -83,5 +84,23 @@ public class EqualString {
         //Pattern.replaceAll
         String changedRegex = matcherNew.replaceAll("[*]");
         System.out.println("changedRegex: " + changedRegex);
+
+
+        String textFromArticle = "Conan Doyle did not want Sherlock Holmes to live for so long! In fact he tried to stop writing  the Sherlock Holmes stories in 1893, with the story \"The Final Problem\". Holmes and Moriarty, his big enemy, had a fight at the Riechenbach Falls in Switzerland, and they fell together into the water. But the readers protested so much that Conan Doyle was forced to \"resurrect\" the detective. Holmes \"miraculously\" survived, and there was another book of stories ten years later. Now at Meiringen in Switzerland, at the site of the falls, there is a \"Sherlock Holmes pub\" and a \"Sherlock Holmes hotel\", and a large Sherlock Holmes museum.\n" +
+                "   In England, there is a big \"Sherlock Holmes Society\". Members of the Society take the stories very seriously. They have meetings and discussions, where they talk about the books, and discuss some of the problems that still exist. For example, in one of the stories, Holmes took a train from London to Paris, but arrived in Paris before the train! How did he do it? One member looked at the train timetables of the 1890's, and found an explanation: He could have changed trains at Reading, near London, to arrive at the coast more quickly! It's elementary of course, for Sherlock Holmes.\n" +
+                "   Sherlock Holmes is a legend that will not die.. Every week  about 40 cards and letters, addressed to Mr. Holmes, are delivered at his address, 221B, Baker Street, in London. People ask the detective to solve their personal mysteries for them — some letters even asked him to explain international events!\n" +
+                "   There is a secretary who answers all the letters to Sherlock Holmes: she always says that Holmes has retired, and that he now lives in the country, where he keeps bees. It's a pity!";
+
+        Pattern pattern = Pattern.compile("die");
+        Pattern patternEmptyPlace =Pattern.compile("( [a-z+\"!?,.]+)");
+        Matcher matcher = pattern.matcher(textFromArticle);
+        String[] wordsUpperCase = patternEmptyPlace.split(textFromArticle);
+        System.out.println(Arrays.asList(wordsUpperCase)+"\n"+Arrays.asList(wordsUpperCase).size());
+        int countOfRegex=0;
+        while (matcher.find()){
+            countOfRegex++;
+        }
+        System.out.println("countOfRegex = "+ countOfRegex);
+
     }
 }
