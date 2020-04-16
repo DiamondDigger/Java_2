@@ -121,10 +121,16 @@ public class EqualString {
 
         List<String> list = Arrays.stream(wordsArr).distinct().collect(Collectors.toList());
         System.out.println("list: " + list + "\n" + "list.size()= " + list.size());
-        char[] sequenceOfWord = new char[10];
-        String[] wordArrFromM = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && s.charAt(0)=='m').toArray(String[]::new);
+        String[] wordArrFromM = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='m'|| s.charAt(0)=='M')).toArray(String[]::new);
+        String[] wordArrFromA = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='a'|| s.charAt(0)=='A')).toArray(String[]::new);
+        String[] wordArrFromB = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='b' || s.charAt(0)=='B')).toArray(String[]::new);
 
         System.out.println("wordArrFromM: " + Arrays.stream(wordArrFromM).collect(Collectors.toList())
                 +"\n"+ "wordArrFromM.length= "+wordArrFromM.length);
+        System.out.println("wordArrFromA: " + Arrays.stream(wordArrFromA).collect(Collectors.toList())
+                +"\n"+ "wordArrFromM.length= "+wordArrFromA.length);
+        System.out.println("wordArrFromB: " + Arrays.stream(wordArrFromB).collect(Collectors.toList())
+                +"\n"+ "wordArrFromM.length= "+wordArrFromB.length);
+
     }
 }
