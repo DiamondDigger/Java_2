@@ -11,8 +11,7 @@ public class EqualString {
         System.out.println("str1.equals(str2) = " + str1.equals(str2));
         System.out.println("str1==str2 = " + (str1 == str2));
 
-// String.compareTo and compareToIgnore
-
+        // String.compareTo and compareToIgnore
         String[] arrStr = {"new", "cat", "Bully", "coin", "book", "wood", "catt"};
 
         for (int i = 0; i < arrStr.length; i++) {
@@ -54,7 +53,7 @@ public class EqualString {
         s2 = s2.intern();
         System.out.println("s1 == s2: " + (s1 == s2));
 
-        //StringBuffer and StringBuilder
+//StringBuffer and StringBuilder
         StringBuilder stringBuilder = new StringBuilder();
         StringBuffer stringBuffer = new StringBuffer(35);
         stringBuilder.append("Java");
@@ -64,18 +63,25 @@ public class EqualString {
         System.out.println("stringBuffer.toString().hashCode() == stringBuilder.toString().hashCode(): " + (stringBuffer.toString().hashCode() == stringBuilder.toString().hashCode()));
         System.out.println("stringBuffer.toString() == stringBuilder.toString(): " + (stringBuffer.toString() == stringBuilder.toString()));
         System.out.println("stringBuffer.toString().equals(stringBuilder.toString()): " + (stringBuffer.toString().equals(stringBuilder.toString())));
-        System.out.println("stringBuffer.toString().contentEquals(stringBuilder): "+stringBuffer.toString().contentEquals(stringBuilder));
+        System.out.println("stringBuffer.toString().contentEquals(stringBuilder): " + stringBuffer.toString().contentEquals(stringBuilder));
 
-        System.out.println("stringBuffer.hashCode() = "+stringBuffer.hashCode());    // 885284298
-        System.out.println("stringBuilder.hashCode() = "+stringBuilder.hashCode());  // 1389133897
+        System.out.println("stringBuffer.hashCode() = " + stringBuffer.hashCode());    // 885284298
+        System.out.println("stringBuilder.hashCode() = " + stringBuilder.hashCode());  // 1389133897
 
-        // Pattern and Matcher
-        Pattern patternNew =Pattern.compile("string");
+// Pattern and Matcher
+        /*
+        Pattern patternNew = pattern.compile(String regex)   - создание patternNew
+        Matcher matcherNew = patternNew.matcher(String str)     - создание matcherNew - класс строка
+         */
+        Pattern patternNew = Pattern.compile("string");
         Matcher matcherNew = patternNew.matcher("stringstring stringBuffer stringg 34string");
         int i = 1;
-        while( matcherNew.find()){
-            System.out.println("matcherNew.group(): "+ i +". " + matcherNew.group());
+        while (matcherNew.find()) {
+            System.out.println("matcherNew.group(): " + i + ". " + matcherNew.group());
             i++;
         }
+        //Pattern.replaceAll
+        String changedRegex = matcherNew.replaceAll("[*]");
+        System.out.println("changedRegex: " + changedRegex);
     }
 }
