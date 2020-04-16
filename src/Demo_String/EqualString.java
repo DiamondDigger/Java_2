@@ -96,6 +96,10 @@ public class EqualString {
         Matcher matcher = pattern.matcher(textFromArticle);
         String[] wordsUpperCase = patternEmptyPlace.split(textFromArticle);
         System.out.println(Arrays.asList(wordsUpperCase)+"\n"+Arrays.asList(wordsUpperCase).size());
+
+        int num = (int) Arrays.stream(wordsUpperCase).filter("Sherlock"::equals).count();
+        System.out.println("num= "+num);
+
         int countOfRegex=0;
         while (matcher.find()){
             countOfRegex++;
