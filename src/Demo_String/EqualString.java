@@ -92,7 +92,7 @@ public class EqualString {
                 "   There is a secretary who answers all the letters to Sherlock Holmes: she always says that Holmes has retired, and that he now lives in the country, where he keeps bees. It's a pity!";
 
         Pattern pattern = Pattern.compile("die");
-        Pattern patternEmptyPlace =Pattern.compile("[,. \"-:!]+");
+        Pattern patternEmptyPlace =Pattern.compile("[\\W]");
         Matcher matcher = pattern.matcher(textFromArticle);
         String[] wordsUpperCase = patternEmptyPlace.split(textFromArticle);
         System.out.println(Arrays.asList(wordsUpperCase)+"\n"+Arrays.asList(wordsUpperCase).size());
