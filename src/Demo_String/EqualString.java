@@ -1,8 +1,10 @@
 package Demo_String;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class EqualString {
     public static void main(String[] args) {
@@ -92,19 +94,27 @@ public class EqualString {
                 "   There is a secretary who answers all the letters to Sherlock Holmes: she always says that Holmes has retired, and that he now lives in the country, where he keeps bees. It's a pity!";
 
         Pattern pattern = Pattern.compile("die");
-        Pattern patternEmptyPlace =Pattern.compile("[\\W]");
+        Pattern patternEmptyPlace = Pattern.compile("[\\W]");
         Matcher matcher = pattern.matcher(textFromArticle);
         String[] wordsUpperCase = patternEmptyPlace.split(textFromArticle);
-        System.out.println(Arrays.asList(wordsUpperCase)+"\n"+Arrays.asList(wordsUpperCase).size());
 
-        int num = (int) Arrays.stream(wordsUpperCase).filter("Sherlock"::equals).count();
-        System.out.println("num= "+num);
-
-        int countOfRegex=0;
-        while (matcher.find()){
+        System.out.println("Arrays.asList(wordsUpperCase): " + Arrays.asList(wordsUpperCase)
+                + "\n" + Arrays.asList(wordsUpperCase).size());
+        int countOfRegex = 0;
+        while (matcher.find()) {
             countOfRegex++;
         }
-        System.out.println("countOfRegex = "+ countOfRegex);
+        System.out.println("countOfRegex = " + countOfRegex);
+        String word = "to";
+        int numW = (int) Arrays.stream(wordsUpperCase).filter(word::equals).count();
+        System.out.println("num= " + numW);
+//        System.out.println("Arrays.stream(wordsUpperCase).distinct(): " + Arrays.stream(wordsUpperCase).distinct().collect(Collectors.toList())
+//                + "\n" + wordsUpperCase.length);
+        List<String> list = Arrays.stream(wordsUpperCase).distinct().collect(Collectors.toList());
+        System.out.println("list: "+list+ "\n"+ "list.size()= "+list.size() );
+
+
+
 
     }
 }
