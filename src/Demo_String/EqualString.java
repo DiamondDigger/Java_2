@@ -96,21 +96,30 @@ public class EqualString {
         Pattern pattern = Pattern.compile("die");
         Pattern patternEmptyPlace = Pattern.compile("[\\W]");
         Matcher matcher = pattern.matcher(textFromArticle);
-        String[] wordsUpperCase = patternEmptyPlace.split(textFromArticle);
+        String[] wordsArr = patternEmptyPlace.split(textFromArticle);
 
-        System.out.println("Arrays.asList(wordsUpperCase): " + Arrays.asList(wordsUpperCase)
-                + "\n" + Arrays.asList(wordsUpperCase).size());
+        System.out.println("Arrays.asList(wordsArr): " + Arrays.asList(wordsArr)
+                + "\n" + Arrays.asList(wordsArr).size());
         int countOfRegex = 0;
         while (matcher.find()) {
             countOfRegex++;
         }
         System.out.println("countOfRegex = " + countOfRegex);
         String word = "to";
-        int numW = (int) Arrays.stream(wordsUpperCase).filter(word::equals).count();
+        int numW = (int) Arrays.stream(wordsArr).filter(word::equals).count();
         System.out.println("num= " + numW);
-//        System.out.println("Arrays.stream(wordsUpperCase).distinct(): " + Arrays.stream(wordsUpperCase).distinct().collect(Collectors.toList())
-//                + "\n" + wordsUpperCase.length);
-        List<String> list = Arrays.stream(wordsUpperCase).distinct().collect(Collectors.toList());
+
+        String[] wordsArrWithoutDuplicate = Arrays.stream(wordsArr).distinct().sorted().toArray(String[]::new);
+        for (int j = 0; j < wordsArrWithoutDuplicate.length; j++) {
+            System.out.print(wordsArrWithoutDuplicate[j]+" ,");
+            if (j ==100) {
+                System.out.println("\n");
+            }
+        }
+        System.out.println();
+        System.out.println("wordsArrWithoutDuplicate.length= "+wordsArrWithoutDuplicate.length);
+
+        List<String> list = Arrays.stream(wordsArr).distinct().collect(Collectors.toList());
         System.out.println("list: "+list+ "\n"+ "list.size()= "+list.size() );
 
 
