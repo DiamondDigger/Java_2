@@ -373,5 +373,12 @@ public class EqualString {
         System.out.println("wordArrFromB: " + Arrays.stream(wordArrFromB).collect(Collectors.toList())
                 +"\n"+ "wordArrFromM.length= "+wordArrFromB.length);
 
+        ParserOfWordByLetter parserOfWordByLetter = new ParserOfWordByLetter();
+        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'c')));
+        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'a')));
+        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'l')));
+        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'o')));
+
+
     }
 }
