@@ -346,12 +346,13 @@ public class EqualString {
         System.out.println("countOfRegex = " + countOfRegex);
         String word = "to";
         int numW = (int) Arrays.stream(wordsArr).filter(word::equals).count();
-        System.out.println("num= " + numW);
+        System.out.println("numOF"+word+"= " + numW);
 
         String[] wordsArrWithoutDuplicate = Arrays.stream(wordsArr).distinct().sorted().toArray(String[]::new);
+        System.out.print("wordsArrWithoutDuplicate: ");
         for (int j = 0; j < wordsArrWithoutDuplicate.length; j++) {
             System.out.print(wordsArrWithoutDuplicate[j] + " ,");
-            if (j == 100) {
+            if (j == 500) {
                 System.out.println("\n");
             }
         }
@@ -390,7 +391,7 @@ public class EqualString {
         String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate,s.charAt(0))).toArray(String[][]::new);
         System.out.println("book.length= "+book.length);
         for (String[] s : book) {
-            System.out.println("countOfWords= "+s.length +"\n" + Arrays.asList(s)+"\n");
+            System.out.println("countOfWords= "+s.length +"\n" + Arrays.asList(s)+"\n________________________________________________");
         }
     }
 }
