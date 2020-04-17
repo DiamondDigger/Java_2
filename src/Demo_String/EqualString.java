@@ -333,7 +333,7 @@ public class EqualString {
                 "structures in various ways, such as searching for a particu\u0002lar data item and sorting the data.";
 
         Pattern pattern = Pattern.compile("die");
-        Pattern patternEmptyPlace = Pattern.compile("[\\W]");
+        Pattern patternEmptyPlace = Pattern.compile("[\\W0-9]");
         Matcher matcher = pattern.matcher(textFromArticle);
         String[] wordsArr = patternEmptyPlace.split(textFromArticle);
 
