@@ -364,7 +364,6 @@ public class EqualString {
         String[] wordArrFromA = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='a'|| s.charAt(0)=='A')).toArray(String[]::new);
         String[] wordArrFromB = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='b' || s.charAt(0)=='B')).toArray(String[]::new);
 
-//        String[] wordArrFrom = Arrays.stream(wordsArrWithoutDuplicate).parallel(filter(s -> s.length()!=0 && (s.charAt(0)=='b' || s.charAt(0)=='B'))).filter(s -> s.length()!=0 && (s.charAt(0)=='b' || s.charAt(0)=='B')).toArray(String[]::new);
 
         System.out.println("wordArrFromM: " + Arrays.stream(wordArrFromM).collect(Collectors.toList())
                 +"\n"+ "wordArrFromM.length= "+wordArrFromM.length);
@@ -375,20 +374,23 @@ public class EqualString {
 
         ParserOfWordByLetter parserOfWordByLetter = new ParserOfWordByLetter();
 
-String[] alphabet= {"A", "a","B", "b","C", "c","D", "d","E", "e","F" ,"f","G" ,"g","H", "h","I" ,"i","J", "j","K", "k","L", "l","M",
-        "m","N ","n","O ","o","P ","p","Q ","q","R" ,"r","S" ,"s","T","t","U" ,"u","V" ,"v","W", "w","X", "x","Y" ,"y","Z" ,"z"};
-char[] alphabetHZ= {'A', 'a','B', 'b','C', 'c','D', 'd','E', 'e','F' ,'f','G' ,'g','H', 'h','I' ,'i','J', 'j','K', 'k','L', 'l','M',
-        'm','N' ,'n','O' ,'o','P' ,'p','Q' ,'q','R' ,'r','S' ,'s','T' ,'t','U' ,'u','V' ,'v','W', 'w','X', 'x','Y' ,'y','Z' ,'z'};
-        String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate,s.charAt(0))).toArray(String[][]::new);
-
+// MANUAL call method for parsing words from text by the letter
         System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'c')));
         System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'a')));
         System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'l')));
         System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'o')));
         System.out.println("***********************************");
+
+//        char[] alphabetHZ= {'A', 'a','B', 'b','C', 'c','D', 'd','E', 'e','F' ,'f','G' ,'g','H', 'h','I' ,'i','J', 'j','K', 'k','L', 'l','M',
+//        'm','N' ,'n','O' ,'o','P' ,'p','Q' ,'q','R' ,'r','S' ,'s','T' ,'t','U' ,'u','V' ,'v','W', 'w','X', 'x','Y' ,'y','Z' ,'z'};
+
+// call method of parsing the words by letter IN A STREAM OF ALPHABET
+        String[] alphabet= {"A", "a","B", "b","C", "c","D", "d","E", "e","F" ,"f","G" ,"g","H", "h","I" ,"i","J", "j","K", "k","L", "l","M",
+        "m","N ","n","O ","o","P ","p","Q ","q","R" ,"r","S" ,"s","T","t","U" ,"u","V" ,"v","W", "w","X", "x","Y" ,"y","Z" ,"z"};
+        String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate,s.charAt(0))).toArray(String[][]::new);
         System.out.println("book.length= "+book.length);
         for (String[] s : book) {
-            System.out.println(Arrays.asList(s));
+            System.out.println("countOfWords= "+s.length +"\n" + Arrays.asList(s)+"\n");
         }
     }
 }
