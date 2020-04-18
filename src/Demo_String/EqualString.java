@@ -373,13 +373,13 @@ public class EqualString {
         System.out.println("wordArrFromB: " + Arrays.stream(wordArrFromB).collect(Collectors.toList())
                 + "\n" + "wordArrFromM.length= " + wordArrFromB.length);
 
-        ParserOfWordByLetter parserOfWordByLetter = new ParserOfWordByLetter();
+        ParserOfWordBy parserOfWordBy = new ParserOfWordBy();
 
 // MANUAL call method for parsing words from text by the letter
-        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'c')));
-        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'a')));
-        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'l')));
-        System.out.println(Arrays.toString(parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, 'o')));
+        System.out.println(Arrays.toString(parserOfWordBy.parserByLetter(wordsArrWithoutDuplicate, 'c')));
+        System.out.println(Arrays.toString(parserOfWordBy.parserByLetter(wordsArrWithoutDuplicate, 'a')));
+        System.out.println(Arrays.toString(parserOfWordBy.parserByLetter(wordsArrWithoutDuplicate, 'l')));
+        System.out.println(Arrays.toString(parserOfWordBy.parserByLetter(wordsArrWithoutDuplicate, 'o')));
         System.out.println("***********************************");
 
 //        char[] alphabetHZ= {'A', 'a','B', 'b','C', 'c','D', 'd','E', 'e','F' ,'f','G' ,'g','H', 'h','I' ,'i','J', 'j','K', 'k','L', 'l','M',
@@ -389,7 +389,7 @@ public class EqualString {
         String[] alphabet = {"A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M",
                 "m", "N ", "n", "O ", "o", "P ", "p", "Q ", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z"};
         long time1 = System.currentTimeMillis();
-        String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, s.charAt(0))).toArray(String[][]::new);
+        String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordBy.parserByLetter(wordsArrWithoutDuplicate, s.charAt(0))).toArray(String[][]::new);
         long time2 = System.currentTimeMillis();
         System.out.println("book.length= " + book.length);
         System.out.println("time for sequence parsing time = "+(time2-time1));
@@ -404,9 +404,20 @@ public class EqualString {
         long t2 = System.currentTimeMillis();
         System.out.println("Time of parallel stream processing = " + (t2 - t1));
         long t3 = System.currentTimeMillis();
-        System.out.println("Arrays.stream(wordsArrWithoutDuplicate)= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 6).count());
+        System.out.println("WordLengthONE= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 1).count());
+        System.out.println("WordLengthTWO== " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 2).count());
+        System.out.println("WordLengthTHREE= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 3).count());
+        System.out.println("WordLengthFOUR= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 4).count());
+        System.out.println("WordLengthFIVE= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 5).count());
+        System.out.println("WordLengthSIX= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 6).count());
+        System.out.println("WordLengthSEVEN= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 7).count());
+        System.out.println("WordLengthEIGHT= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 8).count());
         long t4 = System.currentTimeMillis();
         System.out.println("Time of sequence stream processing = " + (t4 - t3));
 
+        String[] oneLengthWord = Arrays.stream(wordsArrWithoutDuplicate).filter((s)-> s.length()==1).toArray(String[]::new);
+        System.out.println(Arrays.asList(oneLengthWord));
+
+        System.out.println(Arrays.toString(parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, 5)));
     }
 }
