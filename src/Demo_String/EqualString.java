@@ -346,7 +346,7 @@ public class EqualString {
         System.out.println("countOfRegex = " + countOfRegex);
         String word = "to";
         int numW = (int) Arrays.stream(wordsArr).filter(word::equals).count();
-        System.out.println("numOF"+word+"= " + numW);
+        System.out.println("numOF" + word + "= " + numW);
 
         String[] wordsArrWithoutDuplicate = Arrays.stream(wordsArr).distinct().sorted().toArray(String[]::new);
         System.out.print("wordsArrWithoutDuplicate: ");
@@ -361,17 +361,17 @@ public class EqualString {
 
         List<String> list = Arrays.stream(wordsArr).distinct().collect(Collectors.toList());
         System.out.println("list: " + list + "\n" + "list.size()= " + list.size());
-        String[] wordArrFromM = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='m'|| s.charAt(0)=='M')).toArray(String[]::new);
-        String[] wordArrFromA = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='a'|| s.charAt(0)=='A')).toArray(String[]::new);
-        String[] wordArrFromB = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length()!=0 && (s.charAt(0)=='b' || s.charAt(0)=='B')).toArray(String[]::new);
+        String[] wordArrFromM = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() != 0 && (s.charAt(0) == 'm' || s.charAt(0) == 'M')).toArray(String[]::new);
+        String[] wordArrFromA = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() != 0 && (s.charAt(0) == 'a' || s.charAt(0) == 'A')).toArray(String[]::new);
+        String[] wordArrFromB = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() != 0 && (s.charAt(0) == 'b' || s.charAt(0) == 'B')).toArray(String[]::new);
 
 
         System.out.println("wordArrFromM: " + Arrays.stream(wordArrFromM).collect(Collectors.toList())
-                +"\n"+ "wordArrFromM.length= "+wordArrFromM.length);
+                + "\n" + "wordArrFromM.length= " + wordArrFromM.length);
         System.out.println("wordArrFromA: " + Arrays.stream(wordArrFromA).collect(Collectors.toList())
-                +"\n"+ "wordArrFromM.length= "+wordArrFromA.length);
+                + "\n" + "wordArrFromM.length= " + wordArrFromA.length);
         System.out.println("wordArrFromB: " + Arrays.stream(wordArrFromB).collect(Collectors.toList())
-                +"\n"+ "wordArrFromM.length= "+wordArrFromB.length);
+                + "\n" + "wordArrFromM.length= " + wordArrFromB.length);
 
         ParserOfWordByLetter parserOfWordByLetter = new ParserOfWordByLetter();
 
@@ -386,12 +386,27 @@ public class EqualString {
 //        'm','N' ,'n','O' ,'o','P' ,'p','Q' ,'q','R' ,'r','S' ,'s','T' ,'t','U' ,'u','V' ,'v','W', 'w','X', 'x','Y' ,'y','Z' ,'z'};
 
 // call method of parsing the words by letter IN A STREAM OF ALPHABET
-        String[] alphabet= {"A", "a","B", "b","C", "c","D", "d","E", "e","F" ,"f","G" ,"g","H", "h","I" ,"i","J", "j","K", "k","L", "l","M",
-        "m","N ","n","O ","o","P ","p","Q ","q","R" ,"r","S" ,"s","T","t","U" ,"u","V" ,"v","W", "w","X", "x","Y" ,"y","Z" ,"z"};
-        String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate,s.charAt(0))).toArray(String[][]::new);
-        System.out.println("book.length= "+book.length);
+        String[] alphabet = {"A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M",
+                "m", "N ", "n", "O ", "o", "P ", "p", "Q ", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z"};
+        long time1 = System.currentTimeMillis();
+        String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordByLetter.ParserByLetter(wordsArrWithoutDuplicate, s.charAt(0))).toArray(String[][]::new);
+        long time2 = System.currentTimeMillis();
+        System.out.println("book.length= " + book.length);
+        System.out.println("time for sequence parsing time = "+(time2-time1));
         for (String[] s : book) {
-            System.out.println("countOfWords= "+s.length +"\n" + Arrays.asList(s)+"\n________________________________________________");
+            System.out.println("countOfWords= " + s.length + "\n" + Arrays.asList(s) + "\n________________________________________________");
         }
+
+        int[] lengthOfWords = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        long t1 = System.currentTimeMillis();
+        System.out.println("Arrays.stream(wordsArrWithoutDuplicate).parallel()= " + Arrays.stream(wordsArrWithoutDuplicate).parallel().filter(s -> s.length() == 6 ).count());
+        long t2 = System.currentTimeMillis();
+        System.out.println("Time of parallel stream processing = " + (t2 - t1));
+        long t3 = System.currentTimeMillis();
+        System.out.println("Arrays.stream(wordsArrWithoutDuplicate)= " + Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() == 6).count());
+        long t4 = System.currentTimeMillis();
+        System.out.println("Time of sequence stream processing = " + (t4 - t3));
+
     }
 }
