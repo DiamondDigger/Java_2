@@ -419,5 +419,11 @@ public class EqualString {
         System.out.println(Arrays.asList(oneLengthWord));
 
         System.out.println(Arrays.toString(parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, 5)));
+        System.out.println(Arrays.toString(parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, 4)));
+
+        String[][] dictionaryByLength= Arrays.stream(lengthOfWords).mapToObj(s-> parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, s)).toArray(String[][]::new);
+        for (String[] s : dictionaryByLength) {
+            System.out.println(Arrays.asList(s));
+        }
     }
 }
