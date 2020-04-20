@@ -1,5 +1,7 @@
 package Demo_String;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -7,7 +9,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class EqualString {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String str1 = "Hello";
         String str2 = new String(str1);
 
@@ -46,7 +48,6 @@ public class EqualString {
         for (String s : arrStr) {
             System.out.println(s);
         }
-
 
         // String.intern - ищет такой объект в пуле литералов - если находит - возврашщает ссылку на него, нет - добавляет в пул
         String s1 = "JavaMachine";
@@ -365,7 +366,6 @@ public class EqualString {
         String[] wordArrFromA = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() != 0 && (s.charAt(0) == 'a' || s.charAt(0) == 'A')).toArray(String[]::new);
         String[] wordArrFromB = Arrays.stream(wordsArrWithoutDuplicate).filter(s -> s.length() != 0 && (s.charAt(0) == 'b' || s.charAt(0) == 'B')).toArray(String[]::new);
 
-
         System.out.println("wordArrFromM: " + Arrays.stream(wordArrFromM).collect(Collectors.toList())
                 + "\n" + "wordArrFromM.length= " + wordArrFromM.length);
         System.out.println("wordArrFromA: " + Arrays.stream(wordArrFromA).collect(Collectors.toList())
@@ -382,8 +382,6 @@ public class EqualString {
         System.out.println(Arrays.toString(parserOfWordBy.parserByLetter(wordsArrWithoutDuplicate, 'o')));
         System.out.println("***********************************");
 
-//        char[] alphabetHZ= {'A', 'a','B', 'b','C', 'c','D', 'd','E', 'e','F' ,'f','G' ,'g','H', 'h','I' ,'i','J', 'j','K', 'k','L', 'l','M',
-//        'm','N' ,'n','O' ,'o','P' ,'p','Q' ,'q','R' ,'r','S' ,'s','T' ,'t','U' ,'u','V' ,'v','W', 'w','X', 'x','Y' ,'y','Z' ,'z'};
 
 // call method of parsing the words by letter IN A STREAM OF ALPHABET
         String[] alphabet = {"A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M",
@@ -425,5 +423,14 @@ public class EqualString {
         for (String[] s : dictionaryByLength) {
             System.out.println(Arrays.asList(s));
         }
+//  Separator for different Operating Systems - in Windows this is a \, for Linux - /.
+        System.out.println("File.separator: "+File.separator);
+        File file = new File("D:\\home_Projects\\udemy\\practice-java-building-projects\\Java_2\\src\\Demo_String\\DictionaryFile.txt");
+//        file.createNewFile();
+        System.out.println("file.exists(): "+file.exists());
+        file.delete();
+        System.out.println("file.exists(): "+file.exists());
+
+
     }
 }
