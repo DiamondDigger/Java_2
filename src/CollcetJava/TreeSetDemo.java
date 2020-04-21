@@ -17,12 +17,13 @@ public class TreeSetDemo {
         hashMap.put(1,"e");
         System.out.println("hashMap: "+hashMap);
 
-        Map<Integer,String> linkedHashMap = new LinkedHashMap<Integer, String>();
+        Map<Integer,String> linkedHashMap = new LinkedHashMap<Integer, String>(5,1,true);
         linkedHashMap.put(5,"a");
         linkedHashMap.put(4,"b");
         linkedHashMap.put(3,"c");
         linkedHashMap.put(2,"d");
         linkedHashMap.put(1,"e");
         System.out.println("linkedHashMap: "+linkedHashMap);
+        System.out.println("size = "+linkedHashMap.size());
     }
 }
