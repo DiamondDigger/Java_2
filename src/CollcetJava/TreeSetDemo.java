@@ -23,6 +23,11 @@ public class TreeSetDemo {
         linkedHashMap.put(3,"c");
         linkedHashMap.put(2,"d");
         linkedHashMap.put(1,"e");
+
+        linkedHashMap.get(3);
+        linkedHashMap.get(5);
+        linkedHashMap.get(1);
+
         System.out.println("linkedHashMap: "+linkedHashMap);
         System.out.println("size = "+linkedHashMap.size());
     }
