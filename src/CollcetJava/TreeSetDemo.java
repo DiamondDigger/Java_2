@@ -26,7 +26,7 @@ public class TreeSetDemo {
 
         linkedHashMap.get(3);
         linkedHashMap.get(5);
-        linkedHashMap.get(1);
+        linkedHashMap.get(1 );
 
         System.out.println("linkedHashMap: "+linkedHashMap);
         System.out.println("size = "+linkedHashMap.size());
