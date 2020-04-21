@@ -30,5 +30,14 @@ public class TreeSetDemo {
 
         System.out.println("linkedHashMap: "+linkedHashMap);
         System.out.println("size = "+linkedHashMap.size());
+
+        Map<Integer, String> cash= new SimpleLRUCash<>(2);
+        cash.put(1,"one");
+        cash.put(2,"two");
+        cash.put(3,"three");
+
+        cash.get(2);
+        cash.put(9,"nine");
+        System.out.println("cash: "+cash);
     }
 }
