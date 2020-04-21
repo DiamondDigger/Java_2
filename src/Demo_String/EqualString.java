@@ -1,6 +1,7 @@
 package Demo_String;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -431,6 +432,9 @@ public class EqualString {
         file.delete();
         System.out.println("file.exists(): "+file.exists());
 
+        File inputTextFile = new File("D:\\home_Projects\\udemy\\practice-java-building-projects\\Java_2\\src\\Demo_String\\text.txt");
+        System.out.println("Found text file: "+inputTextFile.exists());
 
+        FileReader fileReader = new FileReader(inputTextFile);
     }
 }
