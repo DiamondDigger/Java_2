@@ -1,16 +1,20 @@
 package CollcetJava;
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class TreeSetDemo {
     public static void main(String[] args) {
-        Set<Integer> set = new TreeSet<>();
-        set.add(0);
-        set.add(2);
-        set.add(2);
-        set.add(5);
+        // create TreeSet from args - arguments for the main thread
 
+        Set<String> set = new TreeSet<String>(Arrays.asList(args));
         System.out.println("set: "+set);
+
+        Map<Integer,String> hashMap = new HashMap<Integer, String>();
+        hashMap.put(5,"a");
+        hashMap.put(4,"b");
+        hashMap.put(3,"c");
+        hashMap.put(2,"d");
+        hashMap.put(1,"e");
+        System.out.println(hashMap);
     }
 }
