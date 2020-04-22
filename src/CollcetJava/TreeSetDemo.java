@@ -9,7 +9,7 @@ public class TreeSetDemo {
         Set<String> set = new TreeSet<String>(Arrays.asList(args));
         System.out.println("set: " + set);
 
-        Map<Integer, String> hashMap = new HashMap<Integer, String>();
+        Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(5, "a");
         hashMap.put(4, "b");
         hashMap.put(3, "c");
@@ -17,7 +17,7 @@ public class TreeSetDemo {
         hashMap.put(1, "e");
         System.out.println("hashMap: " + hashMap);
 
-        Map<Integer, String> linkedHashMap = new LinkedHashMap<Integer, String>(5, 1, true);
+        Map<Integer, String> linkedHashMap = new LinkedHashMap<>(5, 1, true);
         linkedHashMap.put(5, "a");
         linkedHashMap.put(4, "b");
         linkedHashMap.put(3, "c");
@@ -45,7 +45,9 @@ public class TreeSetDemo {
 
         map.put(data, "information");
 
-        System.out.println("map: " + map.toString());
+        System.out.println("map: " + map.get(data));
+
+        // make it null for garbage collector because of weak reference
         data = null;
 
         System.gc();
