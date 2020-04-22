@@ -391,7 +391,7 @@ public class EqualString {
         String[][] book = Arrays.stream(alphabet).map(s -> parserOfWordBy.parserByLetter(wordsArrWithoutDuplicate, s.charAt(0))).toArray(String[][]::new);
         long time2 = System.currentTimeMillis();
         System.out.println("book.length= " + book.length);
-        System.out.println("time for sequence parsing time = "+(time2-time1));
+        System.out.println("time for sequence parsing time = " + (time2 - time1));
         for (String[] s : book) {
             System.out.println("countOfWords= " + s.length + "\n" + Arrays.asList(s) + "\n________________________________________________");
         }
@@ -399,7 +399,7 @@ public class EqualString {
         int[] lengthOfWords = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         long t1 = System.currentTimeMillis();
-        System.out.println("Arrays.stream(wordsArrWithoutDuplicate).parallel()= " + Arrays.stream(wordsArrWithoutDuplicate).parallel().filter(s -> s.length() == 6 ).count());
+        System.out.println("Arrays.stream(wordsArrWithoutDuplicate).parallel()= " + Arrays.stream(wordsArrWithoutDuplicate).parallel().filter(s -> s.length() == 6).count());
         long t2 = System.currentTimeMillis();
         System.out.println("Time of parallel stream processing = " + (t2 - t1));
         long t3 = System.currentTimeMillis();
@@ -414,27 +414,28 @@ public class EqualString {
         long t4 = System.currentTimeMillis();
         System.out.println("Time of sequence stream processing = " + (t4 - t3));
 
-        String[] oneLengthWord = Arrays.stream(wordsArrWithoutDuplicate).filter((s)-> s.length()==1).toArray(String[]::new);
+        String[] oneLengthWord = Arrays.stream(wordsArrWithoutDuplicate).filter((s) -> s.length() == 1).toArray(String[]::new);
         System.out.println(Arrays.asList(oneLengthWord));
 
         System.out.println(Arrays.toString(parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, 5)));
         System.out.println(Arrays.toString(parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, 4)));
 
-        String[][] dictionaryByLength= Arrays.stream(lengthOfWords).mapToObj(s-> parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, s)).toArray(String[][]::new);
+        String[][] dictionaryByLength = Arrays.stream(lengthOfWords).mapToObj(s -> parserOfWordBy.parseByLength(wordsArrWithoutDuplicate, s)).toArray(String[][]::new);
         for (String[] s : dictionaryByLength) {
             System.out.println(Arrays.asList(s));
         }
 //  Separator for different Operating Systems - in Windows this is a \, for Linux - /.
-        System.out.println("File.separator: "+File.separator);
+        System.out.println("File.separator: " + File.separator);
         File file = new File("D:\\home_Projects\\udemy\\practice-java-building-projects\\Java_2\\src\\Demo_String\\DictionaryFile.txt");
 //        file.createNewFile();
-        System.out.println("file.exists(): "+file.exists());
+        System.out.println("file.exists(): " + file.exists());
         file.delete();
-        System.out.println("file.exists(): "+file.exists());
+        System.out.println("file.exists(): " + file.exists());
 
         File inputTextFile = new File("D:\\home_Projects\\udemy\\practice-java-building-projects\\Java_2\\src\\Demo_String\\text.txt");
-        System.out.println("Found text file: "+inputTextFile.exists());
+        System.out.println("Found text file: " + inputTextFile.exists());
 
         FileReader fileReader = new FileReader(inputTextFile);
+
     }
 }
