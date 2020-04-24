@@ -1,6 +1,7 @@
 package Demo_String;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -426,9 +427,16 @@ public class EqualString {
 //  Separator for different Operating Systems - in Windows this is a \, for Linux - /.
         System.out.println("File.separator: " + File.separator);
         File file = new File("D:\\home_Projects\\udemy\\practice-java-building-projects\\Java_2\\src\\Demo_String\\DictionaryFile.txt");
-//        file.createNewFile();
+        file.createNewFile();
         System.out.println("file.exists(): " + file.exists());
-        file.delete();
+
+//  Write in file DictionaryFile.txt String[][] dictionary by length
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(Arrays.deepToString(dictionaryByLength));
+        fileWriter.close();
+        System.out.println("FileWriter is closed.");
+
+//        file.delete();
         System.out.println("file.exists(): " + file.exists());
 
         File inputTextFile = new File("D:\\home_Projects\\udemy\\practice-java-building-projects\\Java_2\\src\\Demo_String\\text.txt");
