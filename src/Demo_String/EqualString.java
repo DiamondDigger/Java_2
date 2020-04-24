@@ -434,6 +434,8 @@ public class EqualString {
         File inputTextFile = new File("D:\\home_Projects\\udemy\\practice-java-building-projects\\Java_2\\src\\Demo_String\\text.txt");
         System.out.println("Found text file: " + inputTextFile.exists());
 
-
+        String wordForBytes = "0001001";
+        int wordInBytes = Integer.parseInt(wordForBytes);
+        System.out.println("wordInBytes = "+wordInBytes);
     }
 }
